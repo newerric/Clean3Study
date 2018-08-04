@@ -1,0 +1,14 @@
+C:\Git\Clean3Study\CH6\Bowling.Tests\bin\Debug\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Git\Clean3Study\CH6\Bowling.Tests\bin\Debug\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Git\Clean3Study\CH6\Bowling.Tests\bin\Debug\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Git\Clean3Study\CH6\Bowling.Tests\bin\Debug\netcoreapp2.1\Bowling.Tests.deps.json
+C:\Git\Clean3Study\CH6\Bowling.Tests\bin\Debug\netcoreapp2.1\Bowling.Tests.runtimeconfig.json
+C:\Git\Clean3Study\CH6\Bowling.Tests\bin\Debug\netcoreapp2.1\Bowling.Tests.runtimeconfig.dev.json
+C:\Git\Clean3Study\CH6\Bowling.Tests\bin\Debug\netcoreapp2.1\Bowling.Tests.dll
+C:\Git\Clean3Study\CH6\Bowling.Tests\bin\Debug\netcoreapp2.1\Bowling.Tests.pdb
+C:\Git\Clean3Study\CH6\Bowling.Tests\obj\Debug\netcoreapp2.1\Bowling.Tests.csprojAssemblyReference.cache
+C:\Git\Clean3Study\CH6\Bowling.Tests\obj\Debug\netcoreapp2.1\Bowling.Tests.csproj.CoreCompileInputs.cache
+C:\Git\Clean3Study\CH6\Bowling.Tests\obj\Debug\netcoreapp2.1\Bowling.Tests.AssemblyInfoInputs.cache
+C:\Git\Clean3Study\CH6\Bowling.Tests\obj\Debug\netcoreapp2.1\Bowling.Tests.AssemblyInfo.cs
+C:\Git\Clean3Study\CH6\Bowling.Tests\obj\Debug\netcoreapp2.1\Bowling.Tests.dll
+C:\Git\Clean3Study\CH6\Bowling.Tests\obj\Debug\netcoreapp2.1\Bowling.Tests.pdb
