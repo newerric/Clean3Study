@@ -28,6 +28,7 @@ namespace Bowling.Tests
             game.Add(5);
 
             Assert.AreEqual(5, game.Score);
+            Assert.AreEqual(1, game.CurrentFrame);
         }
 
         [TestMethod]
@@ -37,6 +38,7 @@ namespace Bowling.Tests
             game.Add(4);
 
             Assert.AreEqual(9, game.Score);
+            Assert.AreEqual(1, game.CurrentFrame);
         }
 
         [TestMethod]
@@ -50,6 +52,7 @@ namespace Bowling.Tests
             Assert.AreEqual(18, game.Score);
             Assert.AreEqual(9, game.ScoreForFrame(1));
             Assert.AreEqual(18, game.ScoreForFrame(2));
+            Assert.AreEqual(2, game.CurrentFrame);
         }
 
         [TestMethod]
@@ -62,12 +65,26 @@ namespace Bowling.Tests
             Assert.AreEqual(13, game.ScoreForFrame(1));
         }
 
+        [TestMethod]
+        public void TestSimpleFrameAfterSpare()
+        {
+            game.Add(3);
+            game.Add(7);
+            game.Add(3);
+            game.Add(2);
+
+            Assert.AreEqual(13, game.ScoreForFrame(1));
+            Assert.AreEqual(18, game.ScoreForFrame(2));
+        }
+
 
 
     }
 
     public class Game
     {
+        private int currentFrame;
+        private bool isFirstThrow = true;
         private int score;
         private int[] throws = new int[21];
         private int currentThrow;
@@ -78,10 +95,25 @@ namespace Bowling.Tests
             get { return score; }
         }
 
+        public int CurrentFrame
+        {
+            get { return currentFrame; }
+        }
+
         public void Add(int pins)
         {
             throws[currentThrow++] = pins;
             score += pins;
+
+            if (isFirstThrow)
+            {
+                isFirstThrow = false;
+                currentFrame++;
+            }
+            else
+            {
+                isFirstThrow = true;
+            }
         }
 
         public int ScoreForFrame(int theFrame)
@@ -99,7 +131,7 @@ namespace Bowling.Tests
                 // spare
                 if (frameScore == 10)
                 {
-                    score += frameScore +throws[ball++];
+                    score += frameScore + throws[ball];
                 }
                 else
                 {
