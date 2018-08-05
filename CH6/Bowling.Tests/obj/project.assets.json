@@ -1613,6 +1613,16 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XPath.XmlDocument.dll": {}
         }
+      },
+      "Bowling.Service/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "compile": {
+          "bin/placeholder/Bowling.Service.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Bowling.Service.dll": {}
+        }
       }
     }
   },
@@ -5678,10 +5688,16 @@
         "system.xml.xpath.xmldocument.4.0.1.nupkg.sha512",
         "system.xml.xpath.xmldocument.nuspec"
       ]
+    },
+    "Bowling.Service/1.0.0": {
+      "type": "project",
+      "path": "../Bowling.Service/Bowling.Service.csproj",
+      "msbuildProject": "../Bowling.Service/Bowling.Service.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
+      "Bowling.Service >= 1.0.0",
       "MSTest.TestAdapter >= 1.2.1",
       "MSTest.TestFramework >= 1.2.1",
       "Microsoft.NET.Test.Sdk >= 15.7.0",
@@ -5717,7 +5733,11 @@
       },
       "frameworks": {
         "netcoreapp2.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Git\\Clean3Study\\CH6\\Bowling.Service\\Bowling.Service.csproj": {
+              "projectPath": "C:\\Git\\Clean3Study\\CH6\\Bowling.Service\\Bowling.Service.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

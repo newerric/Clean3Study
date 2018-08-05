@@ -1,0 +1,9 @@
+C:\Git\Clean3Study\CH6\Bowling.Service\bin\Debug\netstandard2.0\Bowling.Service.deps.json
+C:\Git\Clean3Study\CH6\Bowling.Service\bin\Debug\netstandard2.0\Bowling.Service.dll
+C:\Git\Clean3Study\CH6\Bowling.Service\bin\Debug\netstandard2.0\Bowling.Service.pdb
+C:\Git\Clean3Study\CH6\Bowling.Service\obj\Debug\netstandard2.0\Bowling.Service.csprojAssemblyReference.cache
+C:\Git\Clean3Study\CH6\Bowling.Service\obj\Debug\netstandard2.0\Bowling.Service.csproj.CoreCompileInputs.cache
+C:\Git\Clean3Study\CH6\Bowling.Service\obj\Debug\netstandard2.0\Bowling.Service.AssemblyInfoInputs.cache
+C:\Git\Clean3Study\CH6\Bowling.Service\obj\Debug\netstandard2.0\Bowling.Service.AssemblyInfo.cs
+C:\Git\Clean3Study\CH6\Bowling.Service\obj\Debug\netstandard2.0\Bowling.Service.dll
+C:\Git\Clean3Study\CH6\Bowling.Service\obj\Debug\netstandard2.0\Bowling.Service.pdb

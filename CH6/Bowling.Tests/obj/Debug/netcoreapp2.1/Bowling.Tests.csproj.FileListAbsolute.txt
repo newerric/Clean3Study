@@ -12,3 +12,6 @@ C:\Git\Clean3Study\CH6\Bowling.Tests\obj\Debug\netcoreapp2.1\Bowling.Tests.Assem
 C:\Git\Clean3Study\CH6\Bowling.Tests\obj\Debug\netcoreapp2.1\Bowling.Tests.AssemblyInfo.cs
 C:\Git\Clean3Study\CH6\Bowling.Tests\obj\Debug\netcoreapp2.1\Bowling.Tests.dll
 C:\Git\Clean3Study\CH6\Bowling.Tests\obj\Debug\netcoreapp2.1\Bowling.Tests.pdb
+C:\Git\Clean3Study\CH6\Bowling.Tests\bin\Debug\netcoreapp2.1\Bowling.Service.dll
+C:\Git\Clean3Study\CH6\Bowling.Tests\bin\Debug\netcoreapp2.1\Bowling.Service.pdb
+C:\Git\Clean3Study\CH6\Bowling.Tests\obj\Debug\netcoreapp2.1\Bowling.Tests.csproj.CopyComplete

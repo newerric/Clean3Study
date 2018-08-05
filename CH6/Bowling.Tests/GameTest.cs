@@ -1,4 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Bowling.Service;
 
 namespace Bowling.Tests
 {
@@ -103,93 +104,61 @@ namespace Bowling.Tests
             Assert.AreEqual(11, game.CurrentFrame);
         }
 
-    }
-
-    public class Game
-    {
-        private int currentFrame = 1;
-        private bool isFirstThrow = true;
-        private int score;
-        private int[] throws = new int[21];
-        private int currentThrow;
-
-        public int Score
+        [TestMethod]
+        public void TestEndOfArray()
         {
-            get
+            for (int i = 0; i < 9; i++)
             {
-                return ScoreForFrame(currentFrame - 1);
+                game.Add(0);
+                game.Add(0);
             }
+
+            game.Add(2);
+            game.Add(8); // tenth time spare 
+            game.Add(10); // last time strike
+
+            Assert.AreEqual(20, game.Score);
         }
 
-        public int CurrentFrame
+        [TestMethod]
+        public void TestSampleGame()
         {
-            get { return currentFrame; }
+            game.Add(1);
+            game.Add(4);
+            game.Add(4);
+            game.Add(5);
+            game.Add(6);
+            game.Add(4);
+            game.Add(5);
+            game.Add(5);
+            game.Add(10);
+            game.Add(0);
+            game.Add(1);
+            game.Add(7);
+            game.Add(3);
+            game.Add(6);
+            game.Add(4);
+            game.Add(10);
+            game.Add(2);
+            game.Add(8);
+            game.Add(6);
+
+            Assert.AreEqual(133, game.Score);
         }
 
-        public void Add(int pins)
+        [TestMethod]
+        public void TestHeartBreak()
         {
-            throws[currentThrow++] = pins;
-            score += pins;
-
-            AdjustCurrentFrame(pins);
-        }
-
-        private void AdjustCurrentFrame(int pins)
-        {
-            if (isFirstThrow)
+            for (int i = 0; i < 11; i++)
             {
-                if (pins == 10) // Strike
-                {
-                    currentFrame++;
-                }
-                else
-                {
-                    isFirstThrow = false;
-                }
-            }
-            else
-            {
-                isFirstThrow = true;
-                currentFrame++;
+                game.Add(10);
             }
 
-            if (currentFrame > 11)
-            {
-                currentFrame = 11;
-            }
-        }
+            game.Add(9);
 
-        public int ScoreForFrame(int theFrame)
-        {
-            int ball = 0;
-            int score = 0;
-
-            for (int currentFrame = 0; currentFrame < theFrame; currentFrame++)
-            {
-                int firstThrow = throws[ball++];
-                if (firstThrow == 10)   // Strike
-                {
-                    score += 10 + throws[ball] + throws[ball + 1];
-                }
-                else
-                {
-                    int secondThrow = throws[ball++];
-                    int frameScore = firstThrow + secondThrow;
-
-                    // spare
-                    if (frameScore == 10)
-                    {
-                        score += frameScore + throws[ball];
-                    }
-                    else
-                    {
-                        score += frameScore;
-                    }
-
-                }
-            }
-
-            return score;
+            Assert.AreEqual(299, game.Score);
         }
     }
+
+    
 }
