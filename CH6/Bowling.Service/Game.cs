@@ -4,6 +4,9 @@ namespace Bowling.Service
 {
     public class Game
     {
+        private int ball;
+        private int firstThrow;
+        private int secondThrow;
         private int currentFrame = 1;
         private bool isFirstThrow = true;
         private int score;
@@ -58,32 +61,40 @@ namespace Bowling.Service
 
         public int ScoreForFrame(int theFrame)
         {
-            int ball = 0;
+            ball = 0;
             int score = 0;
 
             for (int currentFrame = 0; currentFrame < theFrame; currentFrame++)
             {
-                int firstThrow = throws[ball++];
+                firstThrow = throws[ball++];
                 if (firstThrow == 10)   // Strike
                 {
                     score += 10 + throws[ball] + throws[ball + 1];
                 }
                 else
                 {
-                    int secondThrow = throws[ball++];
-                    int frameScore = firstThrow + secondThrow;
-
-                    // spare
-                    if (frameScore == 10)
-                    {
-                        score += frameScore + throws[ball];
-                    }
-                    else
-                    {
-                        score += frameScore;
-                    }
+                    score += HandleSecondThrow();
 
                 }
+            }
+
+            return score;
+        }
+
+        private int HandleSecondThrow()
+        {
+            int score = 0;
+            secondThrow = throws[ball++];
+            int frameScore = firstThrow + secondThrow;
+
+            // spare
+            if (frameScore == 10)
+            {
+                score += frameScore + throws[ball];
+            }
+            else
+            {
+                score += frameScore;
             }
 
             return score;
