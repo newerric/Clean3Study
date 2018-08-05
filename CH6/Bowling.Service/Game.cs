@@ -66,8 +66,13 @@ namespace Bowling.Service
             {
                 if (Strike())   // Strike
                 {
+                    score += 10 + NextTwoBallsForStrike;
                     ball++;
-                    score += 10 + NextTwoBalls;
+                }
+                else if (Spare())
+                {
+                    score += 10 + NextBallForSpare;
+                    ball += 2;
                 }
                 else
                 {
@@ -86,7 +91,7 @@ namespace Bowling.Service
             if (Spare())
             {
                 ball += 2;
-                score += 10 + NextBall;
+                score += 10 + NextBallForSpare;
             }
             else
             {
@@ -102,9 +107,9 @@ namespace Bowling.Service
             return throws[ball] == 10;
         }
 
-        private int NextTwoBalls
+        private int NextTwoBallsForStrike
         {
-            get { return (throws[ball] + throws[ball + 1]); }
+            get { return (throws[ball + 1] + throws[ball + 2]); }
         }
 
         private bool Spare()
@@ -112,14 +117,15 @@ namespace Bowling.Service
             return throws[ball] + throws[ball + 1] == 10;
         }
 
-        private int NextBall
+        private int NextBallForSpare
         {
-            get { return throws[ball]; }
+            get { return throws[ball + 2]; }
         }
 
         private int TwoBallsInFrame
         {
             get { return throws[ball] + throws[ball + 1]; }
         }
+
     }
 }
