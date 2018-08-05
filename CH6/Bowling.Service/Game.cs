@@ -4,8 +4,7 @@ namespace Bowling.Service
 {
     public class Game
     {
-        private int score;
-        private int currentFrame = 1;
+        private int currentFrame = 0;
         private bool isFirstThrow = true;
         private Scorer scorer = new Scorer();
 
@@ -13,56 +12,45 @@ namespace Bowling.Service
         {
             get
             {
-                return ScoreForFrame(currentFrame - 1);
+                return ScoreForFrame(currentFrame);
             }
         }
-
-        public int CurrentFrame
-        {
-            get { return currentFrame; }
-        }
-
         public void Add(int pins)
         {
             scorer.AddThrow(pins);
 
             AdjustCurrentFrame(pins);
-        }
+        }       
 
         private void AdjustCurrentFrame(int pins)
         {
-            if (isFirstThrow)
+            if (LastBallInFrame(pins))
             {
-                if (AdjustFrameForStrike(pins) == false)
-                {
-                    isFirstThrow = false;
-                }               
+                AdvanceFrame();
             }
             else
             {
-                isFirstThrow = true;
-                AdvanceFrame();
+                isFirstThrow = false;
             }
         }
 
-        private bool AdjustFrameForStrike(int pins)
+        private bool LastBallInFrame(int pins)
         {
-            if (pins == 10)
-            {
-                AdvanceFrame();
-                return true;
-            }
-
-            return false;
+            return Strike(pins) || (!isFirstThrow);
         }
+
+        private bool Strike(int pins)
+        {
+            return (isFirstThrow && pins == 10);
+        }       
 
         private void AdvanceFrame()
         {
             currentFrame++;
 
-            if (currentFrame > 11)
+            if (currentFrame > 10)
             {
-                currentFrame = 11;
+                currentFrame = 10;
             }
         }
 
