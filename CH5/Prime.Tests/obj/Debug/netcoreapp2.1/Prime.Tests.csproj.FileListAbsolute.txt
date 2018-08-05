@@ -1,0 +1,17 @@
+C:\Git\Clean3Study\CH5\Prime.Tests\obj\Debug\netcoreapp2.1\Prime.Tests.csprojAssemblyReference.cache
+C:\Git\Clean3Study\CH5\Prime.Tests\obj\Debug\netcoreapp2.1\Prime.Tests.csproj.CoreCompileInputs.cache
+C:\Git\Clean3Study\CH5\Prime.Tests\obj\Debug\netcoreapp2.1\Prime.Tests.AssemblyInfoInputs.cache
+C:\Git\Clean3Study\CH5\Prime.Tests\obj\Debug\netcoreapp2.1\Prime.Tests.AssemblyInfo.cs
+C:\Git\Clean3Study\CH5\Prime.Tests\bin\Debug\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Git\Clean3Study\CH5\Prime.Tests\bin\Debug\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Git\Clean3Study\CH5\Prime.Tests\bin\Debug\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Git\Clean3Study\CH5\Prime.Tests\bin\Debug\netcoreapp2.1\Prime.Tests.deps.json
+C:\Git\Clean3Study\CH5\Prime.Tests\bin\Debug\netcoreapp2.1\Prime.Tests.runtimeconfig.json
+C:\Git\Clean3Study\CH5\Prime.Tests\bin\Debug\netcoreapp2.1\Prime.Tests.runtimeconfig.dev.json
+C:\Git\Clean3Study\CH5\Prime.Tests\bin\Debug\netcoreapp2.1\Prime.Tests.dll
+C:\Git\Clean3Study\CH5\Prime.Tests\bin\Debug\netcoreapp2.1\Prime.Tests.pdb
+C:\Git\Clean3Study\CH5\Prime.Tests\bin\Debug\netcoreapp2.1\Prime.dll
+C:\Git\Clean3Study\CH5\Prime.Tests\bin\Debug\netcoreapp2.1\Prime.pdb
+C:\Git\Clean3Study\CH5\Prime.Tests\obj\Debug\netcoreapp2.1\Prime.Tests.csproj.CopyComplete
+C:\Git\Clean3Study\CH5\Prime.Tests\obj\Debug\netcoreapp2.1\Prime.Tests.dll
+C:\Git\Clean3Study\CH5\Prime.Tests\obj\Debug\netcoreapp2.1\Prime.Tests.pdb

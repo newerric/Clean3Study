@@ -1,0 +1,11 @@
+C:\Git\Clean3Study\CH5\Prime\obj\Debug\netcoreapp2.1\Prime.csprojAssemblyReference.cache
+C:\Git\Clean3Study\CH5\Prime\obj\Debug\netcoreapp2.1\Prime.csproj.CoreCompileInputs.cache
+C:\Git\Clean3Study\CH5\Prime\obj\Debug\netcoreapp2.1\Prime.AssemblyInfoInputs.cache
+C:\Git\Clean3Study\CH5\Prime\obj\Debug\netcoreapp2.1\Prime.AssemblyInfo.cs
+C:\Git\Clean3Study\CH5\Prime\bin\Debug\netcoreapp2.1\Prime.deps.json
+C:\Git\Clean3Study\CH5\Prime\bin\Debug\netcoreapp2.1\Prime.runtimeconfig.json
+C:\Git\Clean3Study\CH5\Prime\bin\Debug\netcoreapp2.1\Prime.runtimeconfig.dev.json
+C:\Git\Clean3Study\CH5\Prime\bin\Debug\netcoreapp2.1\Prime.dll
+C:\Git\Clean3Study\CH5\Prime\bin\Debug\netcoreapp2.1\Prime.pdb
+C:\Git\Clean3Study\CH5\Prime\obj\Debug\netcoreapp2.1\Prime.dll
+C:\Git\Clean3Study\CH5\Prime\obj\Debug\netcoreapp2.1\Prime.pdb
