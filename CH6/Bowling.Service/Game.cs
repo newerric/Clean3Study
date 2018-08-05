@@ -66,9 +66,10 @@ namespace Bowling.Service
 
             for (int currentFrame = 0; currentFrame < theFrame; currentFrame++)
             {
-                firstThrow = throws[ball++];
+                firstThrow = throws[ball];
                 if (firstThrow == 10)   // Strike
                 {
+                    ball++;
                     score += 10 + throws[ball] + throws[ball + 1];
                 }
                 else
@@ -84,16 +85,18 @@ namespace Bowling.Service
         private int HandleSecondThrow()
         {
             int score = 0;
-            secondThrow = throws[ball++];
+            secondThrow = throws[ball + 1];
             int frameScore = firstThrow + secondThrow;
 
             // spare
             if (frameScore == 10)
             {
+                ball += 2;
                 score += frameScore + throws[ball];
             }
             else
             {
+                ball += 2;
                 score += frameScore;
             }
 
