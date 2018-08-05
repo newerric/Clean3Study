@@ -25,7 +25,6 @@ namespace Bowling.Service
         public void Add(int pins)
         {
             scorer.AddThrow(pins);
-            score += pins;
 
             AdjustCurrentFrame(pins);
         }
@@ -34,20 +33,32 @@ namespace Bowling.Service
         {
             if (isFirstThrow)
             {
-                if (pins == 10) // Strike
-                {
-                    currentFrame++;
-                }
-                else
+                if (AdjustFrameForStrike(pins) == false)
                 {
                     isFirstThrow = false;
-                }
+                }               
             }
             else
             {
                 isFirstThrow = true;
-                currentFrame++;
+                AdvanceFrame();
             }
+        }
+
+        private bool AdjustFrameForStrike(int pins)
+        {
+            if (pins == 10)
+            {
+                AdvanceFrame();
+                return true;
+            }
+
+            return false;
+        }
+
+        private void AdvanceFrame()
+        {
+            currentFrame++;
 
             if (currentFrame > 11)
             {
@@ -58,7 +69,7 @@ namespace Bowling.Service
         public int ScoreForFrame(int theFrame)
         {
             return scorer.ScoreForFrame(theFrame);
-        }        
+        }
 
     }
 }
