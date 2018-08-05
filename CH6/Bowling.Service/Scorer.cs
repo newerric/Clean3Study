@@ -20,7 +20,7 @@ namespace Bowling.Service
 
             for (int currentFrame = 0; currentFrame < theFrame; currentFrame++)
             {
-                if (Strike())   // Strike
+                if (Strike())
                 {
                     score += 10 + NextTwoBallsForStrike;
                     ball++;
