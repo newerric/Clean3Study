@@ -5,8 +5,6 @@ namespace Bowling.Service
     public class Game
     {
         private int ball;
-        private int firstThrow;
-        private int secondThrow;
         private int currentFrame = 1;
         private bool isFirstThrow = true;
         private int score;
@@ -66,7 +64,6 @@ namespace Bowling.Service
 
             for (int currentFrame = 0; currentFrame < theFrame; currentFrame++)
             {
-                firstThrow = throws[ball];
                 if (Strike())   // Strike
                 {
                     ball++;
@@ -75,7 +72,6 @@ namespace Bowling.Service
                 else
                 {
                     score += HandleSecondThrow();
-
                 }
             }
 
@@ -85,11 +81,9 @@ namespace Bowling.Service
         private int HandleSecondThrow()
         {
             int score = 0;
-            secondThrow = throws[ball + 1];
-            int frameScore = firstThrow + secondThrow;
 
             // spare
-            if (frameScore == 10)
+            if (Spare())
             {
                 ball += 2;
                 score += 10 + NextBall;
