@@ -13,7 +13,7 @@ namespace Prime
     {
         private static int s;
         private static bool[] f;
-        private static int[] primes;
+        private static int[] result;
 
         public static int[] GeneratePrimeNumbers(int maxValue)
         {
@@ -23,11 +23,11 @@ namespace Prime
             }
             else
             {
-                InitializeSieve(maxValue);
+                InitializeArrayOfIntegers(maxValue);
                 Sieve();
                 LoadPrimes();
 
-                return primes; // return the primes
+                return result; // return the primes
             }
         }
 
@@ -47,14 +47,14 @@ namespace Prime
                 }
             }
 
-            primes = new int[count];
+            result = new int[count];
 
             // move the primes into the result
             for (i = 0, j = 0; i < s; i++)
             {
                 if (f[i]) // if prime
                 {
-                    primes[j++] = i;
+                    result[j++] = i;
                 }
             }
         }
@@ -76,21 +76,17 @@ namespace Prime
             }
         }
 
-        private static void InitializeSieve(int maxValue)
+        private static void InitializeArrayOfIntegers(int maxValue)
         {
             // declarations
-            s = maxValue + 1; // size of array
-            f = new bool[s];
-            int i;
+            f = new bool[maxValue + 1];
+            f[0] = f[1] = false; // neither primes nor multiples.
 
             // initialize array to true.
-            for (i = 0; i < s; i++)
+            for (int i = 2; i < f.Length; i++)
             {
                 f[i] = true;
             }
-
-            // get rid of known non-primes
-            f[0] = f[1] = false;
         }
     }
 }
