@@ -11,8 +11,7 @@ namespace Prime
 {
     public class PrimeGenerator
     {
-        private static int s;
-        private static bool[] f;
+        private static bool[] isCrossed;
         private static int[] result;
 
         public static int[] GeneratePrimeNumbers(int maxValue)
@@ -24,69 +23,61 @@ namespace Prime
             else
             {
                 InitializeArrayOfIntegers(maxValue);
-                Sieve();
-                LoadPrimes();
+                CrossOutMultiples();
 
                 return result; // return the primes
             }
         }
 
-        private static void LoadPrimes()
-        {
-            int i;
-            int j;
-
-            // how many primes are there?
-            int count = 0;
-
-            for (i = 0; i < s; i++)
-            {
-                if (f[i])
-                {
-                    count++; // bump count.
-                }
-            }
-
-            result = new int[count];
-
-            // move the primes into the result
-            for (i = 0, j = 0; i < s; i++)
-            {
-                if (f[i]) // if prime
-                {
-                    result[j++] = i;
-                }
-            }
-        }
-
-        private static void Sieve()
-        {
-            int i;
-            int j;
-
-            for (i = 2; i < Math.Sqrt(s) + 1; i++)
-            {
-                if (f[i]) // if i is uncrossed, cross its multiples.
-                {
-                    for (j = 2 * i; j < s; j += i)
-                    {
-                        f[j] = false; // multiple is not prime
-                    }
-                }
-            }
-        }
-
         private static void InitializeArrayOfIntegers(int maxValue)
         {
-            // declarations
-            f = new bool[maxValue + 1];
-            f[0] = f[1] = false; // neither primes nor multiples.
+            isCrossed = new bool[maxValue + 1];
 
-            // initialize array to true.
-            for (int i = 2; i < f.Length; i++)
+            for (int i = 2; i < isCrossed.Length; i++)
             {
-                f[i] = true;
+                isCrossed[i] = false;
             }
         }
+
+        private static void CrossOutMultiples()
+        {
+            int maxPrimeFactor = CalcMaxPrimeFactor();
+
+            for (int i = 2; i < maxPrimeFactor + 1; i++)
+            {
+                if (NotCrossed(i))
+                {
+                    CrossOutMultiplesOf(i);
+                }
+            }
+        }
+
+        private static int CalcMaxPrimeFactor()
+        {
+            // We cross out all multiples of p, where p is prime.
+            // Thus, all crossed out multiples have p and q for
+            // factors.  If p > sqrt of the size of the array, then
+            // q will never be greater than 1. Thus p is the
+            // largest prime factor in the array and is also
+            // the iteration limit.
+
+            double maxPrimeFactor = Math.Sqrt(isCrossed.Length) + 1;
+
+            return (int)maxPrimeFactor;
+        }
+
+        private static void CrossOutMultiplesOf(int i)
+        {
+            for (int multiple = 2 * i; multiple < isCrossed.Length; multiple += i)
+            {
+                isCrossed[multiple] = true;
+            }
+        }
+
+        private static bool NotCrossed(int i)
+        {
+            return isCrossed[i] == false;
+        }
+        
     }
 }
