@@ -11,7 +11,7 @@ namespace Prime
 {
     public class PrimeGenerator
     {
-        private static bool[] isCrossed;
+        private static bool[] crossedOut;
         private static int[] result;
 
         public static int[] GeneratePrimeNumbers(int maxValue)
@@ -22,28 +22,57 @@ namespace Prime
             }
             else
             {
-                InitializeArrayOfIntegers(maxValue);
+                UncrossIntegersUpTo(maxValue);
                 CrossOutMultiples();
+                PutUncrossedIntegersIntoResult();
 
                 return result; // return the primes
             }
         }
 
-        private static void InitializeArrayOfIntegers(int maxValue)
+        private static void UncrossIntegersUpTo(int maxValue)
         {
-            isCrossed = new bool[maxValue + 1];
+            crossedOut = new bool[maxValue + 1];
 
-            for (int i = 2; i < isCrossed.Length; i++)
+            for (int i = 2; i < crossedOut.Length; i++)
             {
-                isCrossed[i] = false;
+                crossedOut[i] = false;
             }
+        }
+
+        private static void PutUncrossedIntegersIntoResult()
+        {
+            result = new int[NumberOfUncrossedIntegers()];
+
+            for (int j = 0, i = 2; i < crossedOut.Length; i++)
+            {
+                if (NotCrossed(i))
+                {
+                    result[j++] = i;
+                }
+            }
+        }
+
+        private static int NumberOfUncrossedIntegers()
+        {
+            int count = 0;
+
+            for (int i = 2; i < crossedOut.Length; i++)
+            {
+                if (NotCrossed(i))
+                {
+                    count++; // bump count.
+                }
+            }
+
+            return count;
         }
 
         private static void CrossOutMultiples()
         {
-            int maxPrimeFactor = CalcMaxPrimeFactor();
+            int limit = DatemineInterationLimit();
 
-            for (int i = 2; i < maxPrimeFactor + 1; i++)
+            for (int i = 2; i < limit + 1; i++)
             {
                 if (NotCrossed(i))
                 {
@@ -52,32 +81,29 @@ namespace Prime
             }
         }
 
-        private static int CalcMaxPrimeFactor()
+        private static int DatemineInterationLimit()
         {
-            // We cross out all multiples of p, where p is prime.
-            // Thus, all crossed out multiples have p and q for
-            // factors.  If p > sqrt of the size of the array, then
-            // q will never be greater than 1. Thus p is the
-            // largest prime factor in the array and is also
-            // the iteration limit.
+            // Every multiple in the array has a prime factor that
+            // is less than or equal to the root of the array size,
+            // so we don't have to cross off multiples of numbers
+            // larger than that root.
+            double iterationLimit = Math.Sqrt(crossedOut.Length) + 1;
 
-            double maxPrimeFactor = Math.Sqrt(isCrossed.Length) + 1;
-
-            return (int)maxPrimeFactor;
+            return (int)iterationLimit;
         }
 
         private static void CrossOutMultiplesOf(int i)
         {
-            for (int multiple = 2 * i; multiple < isCrossed.Length; multiple += i)
+            for (int multiple = 2 * i; multiple < crossedOut.Length; multiple += i)
             {
-                isCrossed[multiple] = true;
+                crossedOut[multiple] = true;
             }
         }
 
         private static bool NotCrossed(int i)
         {
-            return isCrossed[i] == false;
+            return crossedOut[i] == false;
         }
-        
+
     }
 }
